@@ -3,6 +3,10 @@ plugins {
   id "java-library"
 }
 
+configurations.all {
+ // exclude module: "jersey-container-jetty-http"
+}
+
 dependencies {
 
   implementation project(":tessera-jaxrs:common-jaxrs")
@@ -21,6 +25,7 @@ dependencies {
   implementation project(":tessera-recover")
   implementation "org.apache.commons:commons-lang3"
 
+  implementation "jakarta.annotation:jakarta.annotation-api"
   implementation "jakarta.validation:jakarta.validation-api"
 
   implementation "jakarta.ws.rs:jakarta.ws.rs-api"
@@ -28,12 +33,26 @@ dependencies {
 
   implementation "org.glassfish:jakarta.json"
   api "jakarta.inject:jakarta.inject-api"
+  api "jakarta.servlet:jakarta.servlet-api"
 
   testImplementation "org.glassfish.jersey.test-framework:jersey-test-framework-core"
-  testImplementation "org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2"
-  testImplementation "org.glassfish.jersey.media:jersey-media-json-processing"
+  testImplementation "org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-jetty"
+ // testImplementation "org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2"
+
+ // testImplementation "org.glassfish.jersey.containers:jersey-container-grizzly2-servlet"
+  testImplementation "org.glassfish.jersey.containers:jersey-container-jetty-servlet"
+
+  testImplementation "org.slf4j:jul-to-slf4j"
+
+
+  implementation "org.glassfish.jersey.media:jersey-media-json-processing"
+  implementation "org.glassfish.jersey.media:jersey-media-sse"
   testImplementation "org.glassfish.jersey.media:jersey-media-moxy"
   testImplementation "org.glassfish.jersey.inject:jersey-hk2"
+
+
+  testImplementation "org.eclipse.jetty:jetty-server"
+  testImplementation "org.eclipse.jetty:jetty-servlet"
 
   compileOnly project(':tessera-jaxrs:openapi:common')
 }

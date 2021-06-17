@@ -5,11 +5,8 @@ plugins {
 dependencies {
 
   implementation project(":tessera-data")
-
-
   implementation project(":shared")
   implementation project(":tessera-context")
-  implementation project(":tessera-partyinfo")
   implementation project(":config")
   implementation project(":key-vault:key-vault-api")
   implementation project(":encryption:encryption-api")

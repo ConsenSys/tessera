@@ -5,7 +5,7 @@ module tessera.transaction {
   requires tessera.encryption.api;
   requires tessera.shared;
   requires tessera.data;
-  requires tessera.partyinfo;
+  // requires tessera.partyinfo;
   requires tessera.context;
 
   exports com.quorum.tessera.transaction;

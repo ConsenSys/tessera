@@ -6,3 +6,6 @@
 
 --add-opens
     tessera.partyinfo.jaxrs/com.quorum.tessera.p2p.model=openpojo
+
+ --add-opens
+    tessera.partyinfo.jaxrs/com.quorum.tessera.p2p=hk2.utils

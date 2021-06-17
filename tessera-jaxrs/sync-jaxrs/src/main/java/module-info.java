@@ -1,5 +1,6 @@
 module tessera.partyinfo.jaxrs {
   requires java.json;
+  requires java.annotation;
   requires java.validation;
   requires java.ws.rs;
   requires org.slf4j;
@@ -18,6 +19,8 @@ module tessera.partyinfo.jaxrs {
   requires tessera.partyinfo.model;
   requires tessera.recovery;
   requires io.swagger.v3.oas.annotations;
+  requires jakarta.inject;
+  requires java.servlet;
 
   exports com.quorum.tessera.p2p;
   exports com.quorum.tessera.p2p.resend;
